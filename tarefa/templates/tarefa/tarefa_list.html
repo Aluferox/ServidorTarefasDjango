@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Tarefas {% endblock %}
+
+{% block main %}
+   <div class="container">
+  <div class="row-15">
+    <div class="col-sm">
+        <br><br>
+      <a href="{% url 'criar_tarefa' %}" class="btn btn-info">Criar Tarefa</a>
+        <a href="{% url 'logout' %}" class="badge badge-danger"> Logout</a>
+    </div>
+    <div class="col-sm">
+    <br><br>
+        <p class="h1">Tarefas</p>
+         <table class="table table-hover">
+        <tr>
+          <th>Tarefa</th>
+          <th>prioridade</th>
+          <th>Status</th>
+          <th>Ativa</th>
+          <th>Atualizar</th>
+          <th>excluir</th>
+        </tr>
+    {% for tarefa in object_list %}
+        <tr>
+            <th>{{ tarefa }}</th>
+            <th>{{ tarefa.prioridade }}</th>
+            <th>{{ tarefa.status }}</th>
+
+            {% if tarefa.is_active %}
+                <th>Verdadeiro</th>
+            {% else %}
+                <th>Falso</th>
+            {% endif %}
+            <th> <a href="{% url 'atualizar_tarefa' tarefa.id %}" class="badge badge-info">Atualizar</a> </th>
+            <th> <a href="{% url 'deletar_tarefa' tarefa.id %}" class="badge badge-danger">Excluir</a> </th>
+        </tr>
+    {% endfor %}
+</table>
+    </div>
+    <div class="col-sm">
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+

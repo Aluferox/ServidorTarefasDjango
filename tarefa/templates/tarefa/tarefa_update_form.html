@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{%  load bootstrap %}
+
+{% block title %} Atualizar{% endblock %}
+
+{% block main %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form | bootstrap }}
+        <button type="submit" class="btn btn-primary">Atualizar</button>
+        <a href="{% url 'lista_tarefa' %}" class="btn btn-info">Tarefas</a>
+    </form>
+{% endblock %}
