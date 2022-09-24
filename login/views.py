@@ -16,7 +16,7 @@ def cadastrar(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 response =  redirect('login')
-                response.delete_cookie()
+                response.delete_cookie('sessionid')
                 return response
 
     else:

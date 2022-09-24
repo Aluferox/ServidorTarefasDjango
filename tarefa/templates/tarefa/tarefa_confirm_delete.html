@@ -10,8 +10,8 @@
         {% csrf_token %}
         {{ form | bootstrap }}
         <button type="submit" class="btn btn-danger">Deletar</button>
-
+        <a href="{% url 'lista_tarefa' %}" type="submit" class="btn btn-info">Tarefas</a>
     </form>
-    <a href="{% url 'lista_tarefa' %}" type="submit" class="btn btn-info">Tarefas</a>
+
 
 {% endblock %}
